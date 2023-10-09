@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bienvenido a mi primera pagina con django</h1>
+
+    <p>El nombre del usuario que ha ingresado es: {{nombreUsuario}}</p>
+    <p>La profesion del usuario es: {{profesionUsuario}} </p>
+
+    <br>
+
+    <h2>FECHA ACTUAL</h2>
+
+    <p>La fecha actual es: {{fechaActual}} </p>
+    <p>El dia actual es: {{fechaActual.day}} del mes {{fechaActual.month}} </p>
+    <p>La hora actual es: {{fechaActual.hour}} : {{fechaActual.minute}} : {{fechaActual.second}} </p>
+
+    <br>    
+
+    <h2>AUTOMOTORES</h2>
+
+    <h3>Primer Automotor</h3>
+
+    <P>La marca del automotor es: {{automotor1.marca}}</P>
+    <p>El modelo del automotor es: {{automotor1.modelo}}</p>
+    <p>El precio del automotor es: {{automotor1.precio}} </p>
+
+    <h3>Segundo Automotor</h3>
+
+    <P>La marca del automotor es: {{automotor2.marca}}</P>
+    <p>El modelo del automotor es: {{automotor2.modelo}}</p>
+    <p>El precio del automotor es: {{automotor2.precio}} </p>
+
+</body>
+</html> 
