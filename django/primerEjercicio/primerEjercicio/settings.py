@@ -54,7 +54,7 @@ ROOT_URLCONF = 'primerEjercicio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/FORMACION.SIBAPRSESFSD058/Documents/ivanPalmar/pythonFlashDjango/django/primerEjercicio/primerEjercicio/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

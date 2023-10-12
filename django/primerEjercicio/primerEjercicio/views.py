@@ -2,12 +2,15 @@ from django.http import HttpRequest, HttpResponse
 import datetime
 import datetime
 from django.template import Template, Context 
+from django.template import loader
 
 class Automotor:
     def __init__(self, marca, modelo, precio):
         self.marca = marca
         self.modelo = modelo
         self.precio = precio
+    def getMarca(self):
+        return self.marca
         
 
 def primeraVista(request): #Fisrt View
@@ -20,9 +23,20 @@ def primeraVista(request): #Fisrt View
     
     automotor2 = Automotor('Ferrari',1980,1000000000)
     
+    futbolistas = ['Lionel Messi','Cristiano Ronaldo','Neymar Jr']
+    
+    numeros = [1,2,3,4,5,6,7,8,9,10]
+    
+    numero2 = []
+    
+    listaVacia = []
+    
+    for i in range(0,50+1):
+        numero2.append(i)
+        
     fechaActual = datetime.datetime.now()
         
-    templateOne = open('C:/Users/FORMACION.SIBAPRSESFSD058/Documents/ivanPalmar/django/primerEjercicio/primerEjercicio/templates/primeraPlantilla.html')
+    templateOne = open('C:/Users/FORMACION.SIBAPRSESFSD058/Documents/ivanPalmar/pythonFlashDjango/django/primerEjercicio/primerEjercicio/templates/primeraPlantilla.html')
     
     template = Template(templateOne.read())
     
@@ -33,7 +47,11 @@ def primeraVista(request): #Fisrt View
         'profesionUsuario': profesion,
         'fechaActual': fechaActual,
         'automotor1' : automotor1,
-        'automotor2' : automotor2
+        'automotor2' : automotor2,
+        'futbolistas': futbolistas,
+        'numeros': numeros,
+        'numero2' : numero2,
+        'listaVacia' : listaVacia
     })
     
     document = template.render(context)
@@ -65,3 +83,28 @@ def edadAproximada(request, age,year):
     """ %(year, futureAge)
     
     return HttpResponse(response)
+
+#Chargers and filters
+def cargadores(request):
+    
+    #templateTwo = open('C:/Users/FORMACION.SIBAPRSESFSD058/Documents/ivanPalmar/pythonFlashDjango/django/primerEjercicio/primerEjercicio/templates/cargadores.html')
+    
+    #template = Template(templateTwo.read())
+    
+    #templateTwo.close()
+    
+    nombrePersona = 'Lionel Messi'
+    
+    listaNombres = ['Juan','Ivan','David','Angelo','Lionel','Goku','Naruto']
+    
+    template = loader.get_template('cargadores.html')
+        
+    context = ({
+        'nombrePersona' : nombrePersona,
+        'listaNombres' : listaNombres
+    })
+    
+    document = template.render(context)
+
+    
+    return HttpResponse(document)

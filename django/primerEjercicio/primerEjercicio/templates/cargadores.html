@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cargadores</title>
+</head>
+<body>
+    <h2>Bienvenido a los Cargadores</h2>
+
+    <!--Esto es un comentario de prueba HTML-->
+    {# Esto es un comentario de prueba desde una plantilla y es un comentario de una linea #}
+    {% comment %}
+        Esto es un comentario desde una plantilla multilinea
+    {% endcomment %}
+
+    {% if nombrePersona == 'Lionel Messi'%}
+        <p>El nombre de la persona es: {{nombrePersona}}</p>
+        {% else %}
+            <p>El nombre de la persona no es el ingresado</p>
+    {% endif %}
+
+    <p>El nombre de la persona en mayuscula es: {{nombrePersona|upper}} </p>
+    <p>El nombre de la persona en minuscula es: {{nombrePersona|lower}} </p>
+
+    <h2>NOMBRE DE PERSONA</h2>
+
+    <h3>FILTRO PARA MOSTRAR LA PRIMERA LETRA</h3>
+    <ul>
+        {% for i in listaNombres%}
+            <li>{{i|first}}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>FILTRO PARA MOSTRAR LA ULTIMA LETRA</h3>
+    <ul>
+        {% for i in listaNombres%}
+            <li>{{i|last}}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>FILTROS ENCADENADOS</h3>
+    <ul>    
+        {% for i in listaNombres%}
+            <li>{{i|last|upper}}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

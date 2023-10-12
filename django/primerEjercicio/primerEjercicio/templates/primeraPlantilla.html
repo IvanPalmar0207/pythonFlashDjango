@@ -28,6 +28,8 @@
     <P>La marca del automotor es: {{automotor1.marca}}</P>
     <p>El modelo del automotor es: {{automotor1.modelo}}</p>
     <p>El precio del automotor es: {{automotor1.precio}} </p>
+    <p>La marca del automoto desde un metodo es: {{automotor1.getMarca}} </p>
+    <p>La marca con el metodo Upper: {{automotor1.getMarca.upper}} </p>
 
     <h3>Segundo Automotor</h3>
 
@@ -35,5 +37,54 @@
     <p>El modelo del automotor es: {{automotor2.modelo}}</p>
     <p>El precio del automotor es: {{automotor2.precio}} </p>
 
+    <h2>FUTBOLISTAS</h2>
+    <p>Los mejores futbolistas de la decada son: {{futbolistas}} </p>
+    <p>- El primer futbolista es: {{futbolistas.0}} </p>
+    <p>- El segundo futbolista es: {{futbolistas.1}} </p>
+    <p>- El tercer futbolista es: {{futbolistas.2}} </p>
+
+    <h2>FUTBOLISTAS - ITERACION DE LISTA</h2>
+    <P>
+        <ul>
+            {% for i in futbolistas %}
+                <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+    </P>
+
+    <h2>NUMEROS - ITERACION DE LISTA</h2>
+    <ul>
+        {% for i in numeros%}
+            <li>{{i}}</li>
+        {% endfor%}
+    </ul>
+
+    <h2>NUMEROS - ITERACION DE LISTA Y CONDICIONAL</h2>
+    <ul>
+        {% for i in numeros%}
+            {% if i == 2 %}
+                <li>{{i}}</li>            
+            {% else %}
+                <p>El numero no es igual a dos</p>
+            {% endif%}
+        {% endfor%}
+    </ul>
+
+    <h2>DEL CERO HASTA EL CINCUENTA  - LISTA Y BUCLE</h2>
+    <ul>
+        {% for i in numero2%}
+            <li> {{i}} </li>            
+        {% endfor %}
+    </ul>
+
+    <h2>LISTA VACIA</h2>
+    
+    {% if listaVacia%}
+        {% for i in listaVacia %}
+            {{i}}
+        {% endfor %}
+    {% else %}
+        <p>La lista se encuentra vacia</p>
+    {% endif %}
 </body>
 </html> 

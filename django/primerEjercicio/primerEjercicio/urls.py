@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from primerEjercicio.views import primeraVista, segundaVista, horaActual, edadAproximada
+from primerEjercicio.views import primeraVista, segundaVista, horaActual, edadAproximada, cargadores
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('primeraVista/', primeraVista),
     path('segundaVista/',segundaVista),
     path('horaActual/',horaActual),
-    path('edadAproximada/<int:year>/<int:age>',edadAproximada)
+    path('edadAproximada/<int:year>/<int:age>',edadAproximada),
+    path('cargadores/',cargadores),
 ]
