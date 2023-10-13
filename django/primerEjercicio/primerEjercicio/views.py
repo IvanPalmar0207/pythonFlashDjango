@@ -3,6 +3,7 @@ import datetime
 import datetime
 from django.template import Template, Context 
 from django.template import loader
+from django.shortcuts import render
 
 class Automotor:
     def __init__(self, marca, modelo, precio):
@@ -36,13 +37,9 @@ def primeraVista(request): #Fisrt View
         
     fechaActual = datetime.datetime.now()
         
-    templateOne = open('C:/Users/FORMACION.SIBAPRSESFSD058/Documents/ivanPalmar/pythonFlashDjango/django/primerEjercicio/primerEjercicio/templates/primeraPlantilla.html')
+    templateOne = loader.get_template('primeraPlantilla.html')
     
-    template = Template(templateOne.read())
-    
-    templateOne.close()
-    
-    context = Context({
+    context = ({
         'nombreUsuario': nombre,
         'profesionUsuario': profesion,
         'fechaActual': fechaActual,
@@ -54,7 +51,7 @@ def primeraVista(request): #Fisrt View
         'listaVacia' : listaVacia
     })
     
-    document = template.render(context)
+    document = templateOne.render(context)
     
     return HttpResponse(document) # A response
 
@@ -105,6 +102,33 @@ def cargadores(request):
     })
     
     document = template.render(context)
-
     
     return HttpResponse(document)
+
+#Metodo render y shorcuts
+def plantillasIncrustadas(request):
+
+    animales = ['Ivan','David','Goku']
+
+    context = ({
+        'animales' : animales
+    })
+
+    return render(request,'caminos.html',context)
+
+#Herencia de plantillas
+def plantillaHerencia(request):
+    
+    context = ({
+       
+    })
+    
+    return render(request,'herencia1.html',context)
+
+def plantillaHerencia2(request):
+    
+    context = ({
+        
+    })
+    
+    return render(request, 'herencia2.html',context)
